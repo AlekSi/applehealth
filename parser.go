@@ -81,7 +81,7 @@ func (p *Parser) Next() (healthkit.Data, error) {
 		switch name {
 		case "HealthData":
 			// not using DecodeElement to avoid reading the whole huge element
-			for _, attr := range t.Attr {
+			for _, attr := range se.Attr {
 				expected := xml.Name{Local: "locale"}
 				if attr.Name == expected {
 					p.meta.Locale = attr.Value
@@ -90,14 +90,14 @@ func (p *Parser) Next() (healthkit.Data, error) {
 
 		case "ExportDate":
 			var ed healthkit.ExportDate
-			if err = p.d.DecodeElement(&ed, &t); err != nil {
+			if err = p.d.DecodeElement(&ed, &se); err != nil {
 				return nil, err
 			}
 			p.meta.ExportDate = ed
 
 		case "Me":
 			var m healthkit.Me
-			if err = p.d.DecodeElement(&m, &t); err != nil {
+			if err = p.d.DecodeElement(&m, &se); err != nil {
 				return nil, err
 			}
 			p.meta.Me = m
@@ -105,7 +105,7 @@ func (p *Parser) Next() (healthkit.Data, error) {
 		default:
 			if ndf := newData[name]; ndf != nil {
 				d := ndf()
-				if err = p.d.DecodeElement(d, &t); err != nil {
+				if err = p.d.DecodeElement(d, &se); err != nil {
 					return nil, err
 				}
 				return d, nil
