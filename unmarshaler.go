@@ -47,8 +47,11 @@ func newZipUnmarshaler(z *zip.ReadCloser) (*Unmarshaler, error) {
 			return nil, err
 		}
 
+		d := xml.NewDecoder(rc)
+		d.Strict = true
+
 		return &Unmarshaler{
-			Parser:  NewParser(xml.NewDecoder(rc)),
+			Parser:  NewParser(d),
 			closers: []io.Closer{rc, z},
 			size:    f.FileInfo().Size(),
 		}, nil
@@ -70,8 +73,11 @@ func newXmlUnmarshaler(file string) (*Unmarshaler, error) {
 		return nil, err
 	}
 
+	d := xml.NewDecoder(f)
+	d.Strict = true
+
 	return &Unmarshaler{
-		Parser:  NewParser(xml.NewDecoder(f)),
+		Parser:  NewParser(d),
 		closers: []io.Closer{f},
 		size:    fi.Size(),
 	}, nil
