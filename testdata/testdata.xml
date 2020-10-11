@@ -1,0 +1,12 @@
+<HealthData locale="ru_RU">
+  <ExportDate value="2019-12-26 08:20:53 +0300"></ExportDate>
+  <Me HKCharacteristicTypeIdentifierBiologicalSex="HKBiologicalSexFemale" HKCharacteristicTypeIdentifierBloodType="HKBloodTypeABPositive" HKCharacteristicTypeIdentifierFitzpatrickSkinType="HKFitzpatrickSkinTypeVI" HKCharacteristicTypeIdentifierDateOfBirth="1987-10-02"></Me>
+  <Record sourceName="My Processing Tool" unit="cm" startDate="2015-12-21 13:46:53 +0300" sourceVersion="80" creationDate="2017-10-29 21:29:16 +0300" endDate="2015-12-21 13:46:53 +0300" value="168" type="HKQuantityTypeIdentifierHeight">
+    <MetadataEntry key="Original Creation Date" value="2015-12-21 13:46:53 +0300"></MetadataEntry>
+    <MetadataEntry key="Original Source" value="MyWatch"></MetadataEntry>
+    <MetadataEntry key="Source File Export Date" value="2017-10-29 21:15:43 +0300"></MetadataEntry>
+  </Record>
+  <Record sourceName="Здоровье" unit="kg" startDate="2017-07-25 08:18:00 +0300" sourceVersion="10.3.3" creationDate="2017-07-25 08:18:55 +0300" endDate="2017-07-25 08:18:00 +0300" value="65" type="HKQuantityTypeIdentifierBodyMass">
+    <MetadataEntry key="HKWasUserEntered" value="1"></MetadataEntry>
+  </Record>
+</HealthData>

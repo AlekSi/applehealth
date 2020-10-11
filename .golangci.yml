@@ -1,0 +1,23 @@
+---
+# Almost all linters; some of them are optional.
+
+run:
+  modules-download-mode: readonly
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/AlekSi/applehealth
+
+  unused:
+    check-exported: false
+
+  unparam:
+    check-exported: true
+
+linters:
+  enable-all: true
+  disable:
+    - wsl # too annoying
+
+issues:
+  exclude-use-default: false
