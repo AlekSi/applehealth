@@ -3,6 +3,7 @@
 
 run:
   modules-download-mode: readonly
+  issues-exit-code: 1
 
 linters-settings:
   goimports:
