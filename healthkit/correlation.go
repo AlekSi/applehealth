@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// Correlation is a sample that groups multiple related samples into a single entry.
+// https://developer.apple.com/documentation/healthkit/hkcorrelation
 type Correlation struct {
 	XMLName       xml.Name         `xml:"Correlation"`
 	Type          string           `xml:"type,attr"`
@@ -19,8 +21,9 @@ type Correlation struct {
 	Record        []*Record        `xml:"Record"`
 }
 
+// String returns the object's string representation useful for logging and debugging.
 func (c *Correlation) String() string {
-	return fmt.Sprint(*c)
+	return fmt.Sprintf("%+v", *c)
 }
 
 func (c *Correlation) CreationDateTime() time.Time {

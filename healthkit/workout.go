@@ -23,8 +23,9 @@ type Workout struct {
 	MetadataEntry         []*MetadataEntry `xml:"MetadataEntry"`
 }
 
+// String returns the object's string representation useful for logging and debugging.
 func (w *Workout) String() string {
-	return fmt.Sprint(*w)
+	return fmt.Sprintf("%+v", *w)
 }
 
 func (w *Workout) CreationDateTime() time.Time {

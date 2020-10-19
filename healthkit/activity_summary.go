@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+// ActivitySummary contains the move, exercise, and stand data for a given day.
+// https://developer.apple.com/documentation/healthkit/hkactivitysummary
 type ActivitySummary struct {
 	XMLName                xml.Name `xml:"ActivitySummary"`
 	DateComponents         string   `xml:"dateComponents,attr"`
@@ -19,8 +21,9 @@ type ActivitySummary struct {
 	AppleStandHoursGoal    string   `xml:"appleStandHoursGoal,attr"`
 }
 
+// String returns the object's string representation useful for logging and debugging.
 func (as *ActivitySummary) String() string {
-	return fmt.Sprint(*as)
+	return fmt.Sprintf("%+v", *as)
 }
 
 var _ Data = (*ActivitySummary)(nil)

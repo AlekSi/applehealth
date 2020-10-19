@@ -33,8 +33,9 @@ type InstantaneousBeatsPerMinute struct {
 	Time    string   `xml:"time,attr"`
 }
 
+// String returns the object's string representation useful for logging and debugging.
 func (r *Record) String() string {
-	return fmt.Sprint(*r)
+	return fmt.Sprintf("%+v", *r)
 }
 
 func (r *Record) DeviceMap() map[string]string {

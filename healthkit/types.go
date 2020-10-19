@@ -50,3 +50,8 @@ type MetadataEntry struct {
 	Key     string   `xml:"key,attr"`
 	Value   string   `xml:"value,attr"`
 }
+
+// String returns the object's string representation useful for logging and debugging.
+func (me *MetadataEntry) String() string {
+	return fmt.Sprintf("%+v", *me)
+}
