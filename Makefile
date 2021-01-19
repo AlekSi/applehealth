@@ -19,9 +19,6 @@ bin/golangci-lint:
 bin/go-consistent:
 	go build -modfile=tools/go.mod -o bin/go-consistent github.com/quasilyte/go-consistent
 
-bin/reviewdog:
-	go build -modfile=tools/go.mod -o bin/reviewdog github.com/reviewdog/reviewdog/cmd/reviewdog
-
 bin/benchstat:
 	go build -modfile=tools/go.mod -o bin/benchstat golang.org/x/perf/cmd/benchstat
 
