@@ -20,7 +20,8 @@ linters-settings:
 linters:
   enable-all: true
   disable:
-    - wsl # too annoying
+    - nlreturn # too annoying
+    - wsl      # too annoying
 
 issues:
   exclude-use-default: false
