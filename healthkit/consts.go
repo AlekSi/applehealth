@@ -1,4 +1,4 @@
-// Package healthkit contains Apple's HealthKit types and constans.
+// Package healthkit contains Apple's HealthKit types and constants.
 package healthkit // import "github.com/AlekSi/applehealth/healthkit"
 
 // BiologicalSex indicates the user’s sex.
