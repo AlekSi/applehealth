@@ -116,16 +116,23 @@ func Example() {
 	}
 	defer u.Close()
 
-	for {
-		var data healthkit.Data
-		if data, err = u.Next(); err != nil {
-			break
-		}
+	// call Next() once to be able to read metadata
+	var data healthkit.Data
+	if data, err = u.Next(); err != nil {
+		log.Fatal(err)
+	}
 
+	fmt.Printf("Meta: %s\n", u.Meta())
+
+	for {
 		fmt.Printf("Got %T:\n", data)
 		switch data := data.(type) {
 		case *healthkit.Record:
 			fmt.Printf("\t%s\n", data.Type)
+		}
+
+		if data, err = u.Next(); err != nil {
+			break
 		}
 	}
 	if err != io.EOF {
@@ -133,6 +140,7 @@ func Example() {
 	}
 
 	// Output:
+	// Meta: {Locale:ru_RU ExportDate:{XMLName:{Space: Local:ExportDate} Value:2019-12-26 08:20:53 +0300} Me:{XMLName:{Space: Local:Me} DateOfBirth:1987-10-02 BiologicalSex:HKBiologicalSexFemale BloodType:HKBloodTypeABPositive FitzpatrickSkinType:HKFitzpatrickSkinTypeVI}}
 	// Got *healthkit.Record:
 	// 	HKQuantityTypeIdentifierHeight
 	// Got *healthkit.Record:

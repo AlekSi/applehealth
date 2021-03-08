@@ -27,6 +27,11 @@ type Meta struct {
 	Me         Me
 }
 
+// String returns the object's string representation useful for logging and debugging.
+func (m *Meta) String() string {
+	return fmt.Sprintf("%+v", *m)
+}
+
 type ExportDate struct {
 	XMLName xml.Name `xml:"ExportDate"`
 	Value   string   `xml:"value,attr"`
