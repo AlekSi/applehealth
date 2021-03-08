@@ -18,6 +18,8 @@ linters-settings:
 linters:
   enable-all: true
   disable:
+    - interfacer # deprecated
+    - maligned # deprecated
     - wsl # too annoying
 
 issues:
