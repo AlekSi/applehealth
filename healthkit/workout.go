@@ -7,7 +7,9 @@ import (
 )
 
 type Workout struct {
-	XMLName               xml.Name         `xml:"Workout"`
+	XMLName xml.Name `xml:"Workout"`
+	Raw     string   `xml:",innerxml"`
+
 	WorkoutActivityType   string           `xml:"workoutActivityType,attr"`
 	Duration              string           `xml:"duration,attr"`
 	DurationUnit          string           `xml:"durationUnit,attr"`
@@ -25,7 +27,9 @@ type Workout struct {
 
 // String returns the object's string representation useful for logging and debugging.
 func (w *Workout) String() string {
-	return fmt.Sprintf("%+v", *w)
+	wc := *w
+	wc.Raw = ""
+	return fmt.Sprintf("%+v", wc)
 }
 
 func (w *Workout) CreationDateTime() time.Time {

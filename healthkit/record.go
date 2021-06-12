@@ -8,7 +8,9 @@ import (
 )
 
 type Record struct {
-	XMLName                          xml.Name                            `xml:"Record"`
+	XMLName xml.Name `xml:"Record"`
+	Raw     string   `xml:",innerxml"`
+
 	Type                             string                              `xml:"type,attr"`
 	Unit                             string                              `xml:"unit,attr"`
 	Value                            string                              `xml:"value,attr"`
@@ -35,7 +37,9 @@ type InstantaneousBeatsPerMinute struct {
 
 // String returns the object's string representation useful for logging and debugging.
 func (r *Record) String() string {
-	return fmt.Sprintf("%+v", *r)
+	rc := *r
+	rc.Raw = ""
+	return fmt.Sprintf("%+v", rc)
 }
 
 func (r *Record) DeviceMap() map[string]string {
