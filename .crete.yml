@@ -1,0 +1,5 @@
+---
+template: ../../Crete/crete-go-template/_template
+
+variables:
+  GoImportPath: github.com/AlekSi/applehealth
